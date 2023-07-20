@@ -1,45 +1,100 @@
-// Importa a função validateCreditCardNumber do arquivo './validator.js'.
 import validator from './validator.js';
 
-// Seleciona o elemento <form> do documento HTML.
 const form = document.querySelector('form');
-// Seleciona o elemento de entrada de número do cartão de crédito pelo ID 'credit-card'.
 const cardNumberInput = document.getElementById('credit-card');
-// Seleciona o elemento de contêiner de resultado pelo ID 'result'.
+const cvvInput = document.getElementById('cvv');
+const cardNameInput = document.getElementById('card-name');
+const expirationDateInput = document.getElementById('expiration-date');
 const resultContainer = document.getElementById('result');
 
-// Adiciona um ouvinte de evento para o evento 'submit' no formulário.
+// Event listener para quando o formulário for enviado
 form.addEventListener('submit', (event) => {
-  // Previne o comportamento padrão do formulário (envio da página).
-  event.preventDefault();
+  event.preventDefault(); // Evita o envio tradicional do formulário
 
-  // Obtém o valor do número do cartão de crédito do campo de entrada.
+  // Obter os valores dos campos do formulário
   const cardNumber = cardNumberInput.value;
+  const cvv = cvvInput.value;
+  const cardName = cardNameInput.value;
+  const expirationDate = expirationDateInput.value;
 
-  // Verifica se o número do cartão está em branco ou contém apenas espaços.
-  if (cardNumber.trim() === '') {
-    // Exibe uma mensagem de erro no contêiner de resultado.
+  // Verificar se o número do cartão é válido
+  if (!/^\d{13,19}$/.test(cardNumber)) {
     resultContainer.textContent = 'Por favor, insira um número de cartão de crédito válido.';
-    // Adiciona a classe 'error' ao contêiner para estilização específica de erro.
     resultContainer.classList.add('error');
-    // Encerra a execução da função.
     return;
   }
 
-  // Chama a função validateCreditCardNumber para validar o número do cartão.
-  // A função retorna um objeto com as propriedades "isValid" e "maskedCardNumber".
+  // Verificar se o CVV é válido
+  if (!/^\d{3,4}$/.test(cvv)) {
+    resultContainer.textContent = 'Por favor, insira um CVV válido.';
+    resultContainer.classList.add('error');
+    return;
+  }
+
+  // Verificar se o nome no cartão é válido
+  if (!/^[a-zA-Z\s]+$/.test(cardName)) {
+    resultContainer.textContent = 'Por favor, insira um nome no cartão válido.';
+    resultContainer.classList.add('error');
+    return;
+  }
+
+  // Verificar se a data de expiração é válida (MM/AA)
+  if (!/^\d{2}\/\d{2}$/.test(expirationDate)) {
+    resultContainer.textContent = 'Por favor, insira uma data de expiração válida (MM/AA).';
+    resultContainer.classList.add('error');
+    return;
+  }
+
+  // Verificar se o número do cartão é válido usando o módulo importado "validator"
   const isValid = validator.isValid(cardNumber);
 
-  // Verifica se o número do cartão é válido.
+  // Exibir resultado com base na validade do cartão
   if (isValid) {
-    // Exibe uma mensagem de sucesso com o número do cartão mascarado no contêiner de resultado.
     resultContainer.textContent = `O número do cartão de crédito é válido: ${validator.maskify(cardNumber)}`;
-    // Remove a classe 'error' do contêiner para limpar a estilização de erro, se estiver presente.
     resultContainer.classList.remove('error');
   } else {
-    // Exibe uma mensagem de erro no contêiner de resultado.
     resultContainer.textContent = 'O número do cartão de crédito é inválido.';
-    // Adiciona a classe 'error' ao contêiner para estilização específica de erro.
     resultContainer.classList.add('error');
   }
 });
+
+// Event listener para formatar o campo do número do cartão à medida que é digitado
+cardNumberInput.addEventListener('input', () => {
+  cardNumberInput.value = cardNumberInput.value.replace(/\D/g, '');
+});
+
+// Event listener para formatar o campo do CVV à medida que é digitado
+cvvInput.addEventListener('input', () => {
+  cvvInput.value = cvvInput.value.replace(/\D/g, '');
+});
+
+// Event listener para permitir somente letras e espaços no campo do nome do cartão
+cardNameInput.addEventListener('input', () => {
+  cardNameInput.value = cardNameInput.value.replace(/[^a-zA-Z\s]/g, '');
+});
+
+// Event listener para formatar o campo da data de expiração à medida que é digitado
+expirationDateInput.addEventListener('input', () => {
+  expirationDateInput.value = expirationDateInput.value.replace(/\D/g, '');
+});
+
+// Event listener para formatar o campo da data de expiração com a máscara "MM/AA"
+expirationDateInput.addEventListener('input', (event) => {
+  const input = event.target;
+  const { value } = input;
+  const digitsOnly = value.replace(/\D/g, '');
+  const formattedValue = formatExpirationDate(digitsOnly);
+  input.value = formattedValue;
+});
+
+// Função para formatar a data de expiração em "MM/AA"
+function formatExpirationDate(value) {
+  const month = value.slice(0, 2);
+  const year = value.slice(2, 4);
+
+  if (value.length <= 2) {
+    return month;
+  } else {
+    return `${month}/${year}`;
+  }
+}

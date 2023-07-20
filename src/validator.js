@@ -1,5 +1,5 @@
 const validator = {
-  maskify:function (cardNumber) {
+  maskify: function (cardNumber) {
     // Substitui todos os dígitos, exceto os últimos 4, por '#'.
     const maskedDigits = cardNumber.slice(0, -4).replace(/\d/g, '#');
     // Seleciona os últimos 4 dígitos do número do cartão de crédito.
@@ -37,14 +37,9 @@ const validator = {
       isSecondDigit = !isSecondDigit;
     }
   
-    
-  
-    // Retorna um objeto com a validade do número do cartão e o número mascarado.
-    return  sum % 10 === 0;
+    // Retorna um objeto com a validade do número do cartão (true ou false).
+    return sum % 10 === 0;
   }
-
 }
 
 export default validator;
-  
-  
