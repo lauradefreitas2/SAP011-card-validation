@@ -1,14 +1,145 @@
 <!DOCTYPE html>
+<html lang="pt-BR">
+
+</html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Tarjeta de crédito válida</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-    <script src="index.js" type="module"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Retro Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="index.js" type="module"></script>
+</head>
+
+<body>
+  <header>
+    <!-- navegação do site com lista não ordenada/lista de marcadores -->
+    <nav class="navpai">
+      <div class="container">
+        <div class="logo">
+          <a href="#"><img src="./img/logoprincipal.jpg" alt="Logo do site"></a>
+        </div>
+        <ul class="menu">
+          <li class="navmenu"><a href="#">Início</a></li>
+          <li class="navmenu"><a href="#">Jogos</a></li>
+          <li class="navmenu"><a href="#">Sobre</a></li>
+          <li class="navmenu"><a href="#">Contato</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h1> Carrinho de compras</h1>
+    <div class="carrinho">
+      <div class="detalhedoproduto">
+        <img src="./img/stardewvalley card.jpeg" alt="Card do produto Stardew Valley">
+        <h2>Stardew Valley</h2>
+        <p>Stardew Valley é um jogo de simulação de fazenda envolvente e emocionante. Você herda a antiga fazenda do seu
+          avô no Vale do Orvalho e embarca em uma jornada para restaurar a fazenda e construir uma nova vida para si
+          mesmo. Cultive culturas, crie animais, pesque em rios e oceanos, explore cavernas misteriosas, participe de
+          festivais locais e interaja com os simpáticos habitantes da cidade. Descubra segredos antigos, desbloqueie
+          áreas ocultas e experimente o encanto e a calma da vida rural. Cada estação traz novas atividades e desafios,
+          e as escolhas que você faz moldam o seu destino. Prepare-se para uma aventura inesquecível em Stardew Valley!
+        </p>
+        <div class="imagens-adicionais">
+          <div class="placeholder"></div>
+          <img src="./img/farm_evening_1920x1080.png" alt="Imagem adicional do jogo Stardew Valley">
+          <img src="./img/Multiplayer_Horses.png" alt="Imagem adicional do jogo Stardew Valley">
+          <img src="./img/Multiplayer_Screenshot2.png" alt="Imagem adicional do jogo Stardew Valley">
+          <img src="./img/NightMarket.png" alt="Imagem adicional do jogo Stardew Valley">
+          <img src="./img/SDV_iPad_01.png" alt="Imagem adicional do jogo Stardew Valley">
+          <img src="./img/Mutiplayer_Screenshot1.png" alt="Imagem adicional do jogo Stardew Valley">
+        </div>
+      </div>
+      <div class="resumodacompra">
+        <h3>Resumo do carrinho</h3>
+        <ul>
+          <li>
+            <div class="produto">
+              <img src="./img/stardewvalley card.jpeg" alt="Card do produto Stardew Valley">
+              <div class="infodoproduto">
+                <h4>Stardew Valley</h4>
+                <p class="preco"> R$ 19,99 </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <p class="total"> Total: R$ 19,99 </p>
+        <button class="bt-comprar"> Finalizar compra</button>
+      </div>
+    </div>
+    <section class="credit-card">
+      <h3>Informações do Cartão de Crédito</h3>
+      <div class="card-image">
+        <img src="./img/—Pngtree—blue credit card_3424415.png" alt="Imagem cartão de crédito">
+      </div>
+      <form>
+        <label for="credit-card"> Número do cartão</label>
+        <input type="text" id="credit-card" class="masked" placeholder="Digite o número do cartão" required maxlength="19">
+        <label for="card-name">Nome no Cartão</label>
+        <input type="text" id="card-name" placeholder="Digite o nome no Cartão" required>
+        <label for="expiration-date">Data de Expiração</label>
+        <input type="text" id="expiration-date" placeholder="MM/AA" required>
+        <label for="cvv"> CVV</label>
+        <input type="text" id="cvv" placeholder="CVV" required>
+        <button type="submit"> Pagar</button>
+        <div id="result"></div>
+
+      </form>
+    </section>
+    <section class="requisitos">
+      <h3>Requisitos do Sistema</h3>
+      <div class="requisitosminimos">
+        <h4>Requisitos Mínimos</h4>
+        <ul>
+          <li>Sistema Operacional: Windows 7/8/10</li>
+          <li>Processador: 2Ghz Dual Core</li>
+          <li>Memória RAM: 2GB</li>
+          <li>Placa de vídeo: 256MB</li>
+          <li>Armazenamento: 500MB de espaço disponível</li>
+        </ul>
+      </div>
+      <div class="requisitosrecomendados">
+        <h4>Requisitos Recomendados</h4>
+        <ul>
+          <li>Sistema Operacional: Windows 10</li>
+          <li>Processador: 2.8 Ghz Quad Core</li>
+          <li>Memória RAM: 4GB</li>
+          <li> Placa de vídeo: 1GB</li>
+          <li>Armazenamento: 1GB de espaço disponível</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <ul>
+          <li> <a href="#">Início</a></li>
+          <li><a href="#">Jogos</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Redes sociais</h4>
+        <ul class="footer-social">
+          <li><a href="#"><img src="./img/icons8-facebook-novo-48.png" alt="Facebook"></a></li>
+          <li><a href="#"><img src="./img/icons8-twitter-dentro-de-um-círculo-48.png" alt="Twitter"></a></li>
+          <li><a href="#"><img src="./img/icons8-instagram-48.png" alt="Instagram"></a></li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2023 Retro Game. Todos os direitos reservados</p>
+      <p class="footer-credits">Desenvolvido por Laura De Freitas</p>
+    </div>
+
+  </footer>
+  <script src="index.js" type="module"></script>
+  <!-- <script src="validator.js" type="module"></script> -->
+
+</body>
+
 </html>

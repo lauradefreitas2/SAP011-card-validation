@@ -1,0 +1,354 @@
+/* seletor especial que seleciona o elemento raiz do documento HTML */
+:root {
+  --cor-primaria: #151D27;
+  /*define uma variavel para a cor primaria */
+  --cor-secundaria: #ffaf00;
+  /*define uma variavel para a cor secundaria */
+  --cor-texto: #333333;
+  /*define uma variavel para a cor do texto */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #36415b, #263241);
+}
+/* estilos do header */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+li,
+form,
+input,
+button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+}
+
+.logo img {
+  width: 100px;
+  height: 56px;
+}
+
+header {
+  background-color: var(--cor-primaria);
+  /* Define a cor de fundo do cabeçalho usando a variável de cor primária */
+  padding: 5px;
+  color: #FFF;
+}
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.menu li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.menu li a {
+  color: #FFF;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.menu li a:hover {
+  color: var(--cor-secundaria);
+  /* Define a cor do texto do link quando o mouse está sobre ele */
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* max-width: 1500px; */
+  margin: 0 auto;
+  flex-direction: row;
+}
+
+/* estilos do main */
+main {
+  padding: 20px;
+}
+
+.carrinho {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.detalhedoproduto {
+  flex: 1;
+  background: var(--cor-primaria);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  color: #fff;
+}
+
+.detalhedoproduto img {
+  width: 200px;
+  height: auto;
+  max-width: 400px;
+  object-fit: contain;
+}
+
+.detalhedoproduto h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.detalhedoproduto p {
+  margin-bottom: 20px;
+}
+
+.imagens-adicionais {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.imagens-adicionais .placeholder {
+  flex: 0 0 120px;
+  /* Mesma largura das imagens */
+}
+
+.imagens-adicionais img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  /* Redimensiona as imagens para preencher o contêiner mantendo a proporção */
+  border-radius: 4px;
+  /* Adiciona bordas arredondadas às imagens */
+  transition: transform 0.3s ease;
+}
+
+.imagens-adicionais img:hover {
+  transform: scale(2.5);
+  z-index: 1;
+  /* Define a ordem de empilhamento da imagem para que ela apareça acima das outras */
+}
+
+.resumodacompra {
+  flex: 0 0 250px;
+  background: var(--cor-primaria);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  color: #fff;
+}
+
+.resumodacomprah3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.resumodacompra ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.produto {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.produto img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.info-produto h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.info-produto .preco {
+  font-weight: bold;
+}
+
+.total {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.bt-comprar {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f84e1e;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.credit-card {
+  margin-top: 20px;
+  padding: 20px;
+  background: var(--cor-primaria);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.credit-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.card-image {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-number {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.credit-card form {
+  margin-top: 10px;
+}
+
+.credit-card label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #fff;
+}
+.credit-card .masked {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+}
+
+.credit-card input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.credit-card button[type="submit"] {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f84e1e;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+/* requisitos do sistema */
+.requisitos {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: var(--cor-primaria);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: #FFF;
+}
+.requisitos h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #171b23;
+}
+.requisitos ul {
+  list-style: none;
+  padding-left: 20px;
+}
+.requisitos ul li {
+  margin-bottom: 5px;
+  color: #FFF;
+}
+/* footer */
+footer {
+  background-color: var(--cor-primaria);
+  color: #fff;
+  padding: 20px;
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* max-width: 1500px; */
+  margin: 0 auto;
+  flex-direction: row;
+}
+.footer-section {
+  margin-right: 20px;
+}
+.footer-section ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+}
+.footer-section li {
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+.footer-bottom {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+}
+.footer-social a {
+  margin-left: 5px;
+}
+.footer-social img {
+  width: 20px;
+  height: 20px;
+}
+.footer-section a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: var(--cor-secundaria);
+}
+@media (min-width: 768px) {
+  .footer-section ul {
+    flex-direction: row;
+  }
+}
